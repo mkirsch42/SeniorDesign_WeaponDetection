@@ -1,0 +1,4 @@
+opencv-python==4.4.0.*
+tensorflow==2.3.*
+# tensorflow-gpu==2.3.*
+cvlib==0.2.5
