@@ -4,5 +4,6 @@ services:
         build: .
         image: seniordesign
         volumes:
-            - .:/app
+            - ./src:/app
+            - ./input:/app/input
             - ./cvlib-data:/root/.cvlib
