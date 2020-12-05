@@ -1,9 +1,14 @@
 version: "3.8"
 services:
     app:
+        privileged: True
+        runtime: nvidia
+        environment:
+            - NVIDIA_VISIBLE_DEVICES=all
+            - NVIDIA_DRIVER_CAPABILITIES=all
         build: .
-        image: seniordesign
+        image: seniordesign-v2
+        network_mode: "host"
         volumes:
             - ./src:/app
-            - ./input:/app/input
-            - ./cvlib-data:/root/.cvlib
+            - ./input:/input

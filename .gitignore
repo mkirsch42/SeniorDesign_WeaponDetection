@@ -1,4 +1,6 @@
 .vscode
+/darknet/
+/libdarknet.so
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

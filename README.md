@@ -14,7 +14,7 @@ Docker and VcXsrv can both be installed via [Chocolatey](https://chocolatey.org/
 
 ### Initial Setup
 
-- Run `docker compose run app`. The docker image will build and the default YOLO weights will begin downloading; this will take a while.
+- Run `./setup.sh`. The script will build the darknet library with GPU bindings and then build the Docker image.
 
 ### Running the Application
 
@@ -23,5 +23,5 @@ Docker and VcXsrv can both be installed via [Chocolatey](https://chocolatey.org/
     - Display number: -1
     - Start no client
     - Native OpenGL enabled
-- `docker compose up`
+- `docker-compose up`
     - If using the VS Code extension, you can also start the application through the Docker tab.

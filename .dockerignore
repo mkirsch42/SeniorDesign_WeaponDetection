@@ -2,5 +2,6 @@
 .gitignore
 Dockerfile
 docker-compose.yml
-cvlib-data/
+src/
 input/
+darknet/
