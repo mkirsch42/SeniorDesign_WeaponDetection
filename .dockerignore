@@ -5,3 +5,6 @@ docker-compose.yml
 src/
 input/
 darknet/
+webserver/
+
+!webserver/package.json

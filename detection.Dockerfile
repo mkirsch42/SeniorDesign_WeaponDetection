@@ -24,6 +24,4 @@ RUN mkdir /app && \
     mkdir /input
 WORKDIR /app
 
-ENV DISPLAY 10.0.0.10:0
-
 CMD ["python3", "/app/main.py"]

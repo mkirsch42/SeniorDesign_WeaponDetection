@@ -1,14 +1,25 @@
 version: "3.8"
 services:
-    app:
+    detection:
         privileged: True
         runtime: nvidia
         environment:
             - NVIDIA_VISIBLE_DEVICES=all
             - NVIDIA_DRIVER_CAPABILITIES=all
-        build: .
-        image: seniordesign-v2
-        network_mode: "host"
+            - DISPLAY=10.0.0.10:0.0
+        build:
+            context: .
+            dockerfile: detection.Dockerfile
+        image: sdp-detection
         volumes:
             - ./src:/app
             - ./input:/input
+    webserver:
+        build:
+            context: .
+            dockerfile: webserver.Dockerfile
+        image: sdp-webserver
+        volumes:
+            - ./webserver:/app
+        ports:
+            - "80:3000"
