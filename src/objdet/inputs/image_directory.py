@@ -9,7 +9,7 @@ class ImageDirectory():
         self._loop = loop
 
     def __iter__(self):
-        images = sorted(self._path.glob('*'))
+        images = sorted(self._path.glob('*.jpg'))
         while True:
             if self._scramble:
                 random.shuffle(images)
