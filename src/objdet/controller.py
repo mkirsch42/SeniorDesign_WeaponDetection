@@ -7,12 +7,9 @@ class Controller():
         self._handlers = []
     
     async def __aiter__(self):
-        handler_future = None
         async for image in self.input_source:
             result = await self.model.detect(image[0])
-            if handler_future is not None:
-                await handler_future
-            handler_future = asyncio.gather(*[handler.on_detect(result) for handler in self._handlers])
+            await asyncio.gather(*[handler.on_detect(result) for handler in self._handlers])
             yield result
     
     async def main_loop(self, num_loops=0):
