@@ -35,3 +35,6 @@ class FilesystemLogger(Logger):
         image = cv2.imread(str(self._path / obj['image']))
         bboxes = [BoundingBox(**bbox) for bbox in obj['bboxes']]
         return DetectionResult(image, bboxes)
+
+    async def on_detect(self, result):
+        pass

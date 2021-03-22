@@ -1,12 +1,13 @@
 import cv2
+import asyncio
 
 class VideoInput():
     def __init__(self, input_device):
         self._capture = cv2.VideoCapture(input_device)
 
-    def __iter__(self):
+    async def __aiter__(self):
         while True:
-            ok, frame = self._capture.read()
+            ok, frame = await asyncio.get_event_loop().run_in_executor(None, self._capture.read)
             if ok:
                 yield frame
             else:

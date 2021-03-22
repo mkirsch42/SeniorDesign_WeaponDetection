@@ -1,4 +1,4 @@
-
+import asyncio
 
 class Controller():
     def __init__(self, input_source, model):
@@ -6,19 +6,24 @@ class Controller():
         self.model = model
         self._handlers = []
     
-    def __iter__(self):
-        for image in self.input_source:
-            result = self.model.detect(image[0])
-            for handler in self._handlers:
-                handler.on_detect(result)
+    async def __aiter__(self):
+        handler_future = None
+        async for image in self.input_source:
+            result = await self.model.detect(image[0])
+            if handler_future is not None:
+                await handler_future
+            handler_future = asyncio.gather(*[handler.on_detect(result) for handler in self._handlers])
             yield result
     
-    def main_loop(self, num_loops=0):
+    async def main_loop(self, num_loops=0):
         n = 0
-        for _ in self:
+        async for _ in self:
             n += 1
             if n == num_loops: break
         return n
+
+    async def shutdown(self):
+        await asyncio.gather(*[handler.shutdown() for handler in self._handlers])
 
     def add_handler(self, handler):
         self._handlers.append(handler)

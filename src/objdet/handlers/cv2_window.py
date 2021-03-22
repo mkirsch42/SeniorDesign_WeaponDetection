@@ -14,7 +14,7 @@ class CV2WindowOutput(DetectionHandler):
     def close_window(self):
         cv2.destroyWindow(self.window_name)
 
-    def on_detect(self, result):
+    async def on_detect(self, result):
         if self.annotated_images is not None:
             image = result.annotated_image(**self.annotated_images)
         else:
