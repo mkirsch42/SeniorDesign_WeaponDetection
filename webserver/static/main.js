@@ -12,7 +12,7 @@ const app = new Vue({
     }
    },
     created() {
-     this.socket = io('http://10.0.0.7')
+     this.socket = io()
      this.socket.on('image', (message) => {
       this.receivedMessage(message)
      })

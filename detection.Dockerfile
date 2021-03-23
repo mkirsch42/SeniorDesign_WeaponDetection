@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
     liblapack-dev \
     libhdf5-dev \
     libgtk2.0-dev \
-    gfortran
+    gfortran \
+    libgl1
 ENV LD_LIBRARY_PATH /usr/lib/aarch64-linux-gnu/hdf5/serial:$LD_LIBRARY_PATH
 
 RUN apt-get install -y python3 python3-pip && \
