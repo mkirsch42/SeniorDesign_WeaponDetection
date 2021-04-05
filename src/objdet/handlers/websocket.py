@@ -25,7 +25,17 @@ class WebsocketOutput(DetectionHandler):
             image = result.image
         _, buffer = cv2.imencode('.jpg', image)
         await self._conn.emit('detection', {
-            'image': base64.b64encode(buffer)
+            'image': base64.b64encode(buffer),
+            'boxes': [
+                {
+                    'rect': (int(box.x), int(box.y), int(box.w), int(box.h)),
+                    'label':
+                        {
+                            'name': box.label.name
+                        }
+                }
+                for box in result.bboxes
+            ]
         })
 
     async def shutdown(self):
