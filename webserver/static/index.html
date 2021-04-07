@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <title>Nestjs SocketIO</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SDP Weapon Detection</title>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 </head>
 <body>
-    <div id="app" class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 col-sm-12">
-                    <!-- <h1 class="text-center">{{ title }}</h1> -->
-                    <br>
-                    <!-- <img v-bind:src="'data:image/jpeg;base64, '+imageBytes" /> -->
-                    <canvas id="myCanvas" width="600" height="480"></canvas>
-                </div>
+    <div id="app">
+        <div id="canvasPanel">
+            <h1 id="title">SDP Weapon Detection</h1>
+            <canvas id="myCanvas" width="600" height="480"></canvas>
+            <div id="promoSection">
+                <a href="https://ecesd.engr.uconn.edu/ecesd2120/">View our project webpage</a>
             </div>
+        </div>
+        <div id="notifPanel">
+            <div class="notifCard" v-for="notif in notifications">
+                <div class="notifCardTimestamp">{{ notif.timestamp }}</div>
+                <div class="notifCardMessage">Detected {{ notif.label }}</div>
+                <img class="notifCardThumbnail" v-bind:src="notif.thumbnail" />
+            </div>
+        </div>
     </div>
 
 <script src="main.js"></script>

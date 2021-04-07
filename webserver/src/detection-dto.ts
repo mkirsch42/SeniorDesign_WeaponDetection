@@ -1,5 +1,7 @@
 export class LabelDto {
   name: string;
+  color: string;
+  fg: string;
 }
 
 export class BBoxDto {

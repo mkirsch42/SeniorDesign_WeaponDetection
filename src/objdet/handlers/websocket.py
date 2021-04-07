@@ -31,7 +31,9 @@ class WebsocketOutput(DetectionHandler):
                     'rect': (int(box.x), int(box.y), int(box.w), int(box.h)),
                     'label':
                         {
-                            'name': box.label.name
+                            'name': box.label.name,
+                            'color': '#%02x%02x%02x' % box.label.color,
+                            'fg': '#%02x%02x%02x' % box.label.foreground_color()
                         }
                 }
                 for box in result.bboxes
