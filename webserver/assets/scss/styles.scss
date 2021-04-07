@@ -27,23 +27,30 @@ body, html {
 #notifPanel {
     flex-grow: 1;
     flex-basis: 0;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
+    height: 100%;
+    overflow-y: auto;
 
-    .notifCard {
-        width: 75%;
+    #notifList {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
         margin-bottom: 2em;
-        padding: 0.5em;
-        border-radius: 4px;
-        box-shadow: 0 0 5px;
 
-        .notifCardTimestamp, .notifCardMessage {
-            padding-bottom: 0.25em;
-        }
-
-        .notifCardThumbnail {
-            width: 100%;
+        .notifCard {
+            width: 75%;
+            margin-top: 2em;
+            padding: 0.5em;
+            border-radius: 4px;
+            box-shadow: 0 0 5px;
+    
+            .notifCardTimestamp, .notifCardMessage {
+                padding-bottom: 0.25em;
+            }
+    
+            .notifCardThumbnail {
+                width: 100%;
+            }
         }
     }
+    
 }

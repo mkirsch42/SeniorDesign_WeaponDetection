@@ -19,10 +19,12 @@
             </div>
         </div>
         <div id="notifPanel">
-            <div class="notifCard" v-for="notif in notifications">
-                <div class="notifCardTimestamp">{{ notif.timestamp }}</div>
-                <div class="notifCardMessage">Detected {{ notif.label }}</div>
-                <img class="notifCardThumbnail" v-bind:src="notif.thumbnail" />
+            <div id="notifList">
+                <div class="notifCard" v-for="notif in notifications">
+                    <div class="notifCardTimestamp">{{ notif.timestamp }}</div>
+                    <div class="notifCardMessage">Detected {{ notif.label }}</div>
+                    <img class="notifCardThumbnail" v-bind:src="notif.thumbnail" />
+                </div>
             </div>
         </div>
     </div>
