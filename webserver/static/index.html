@@ -5,27 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <title>Team 2120 - Remote Firearm Detection</title>
+    <title>Nestjs SocketIO</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 </head>
-<body style="background-color:black;">
-	<h1 style="color:blue;text-align: center;">Remote Firearm Detection System</h1>
-    <h3 style="color:white;text-align: center;">Presco Engineering - UConn SOE</h3>
-    <br>
+<body>
     <div id="app" class="container">
             <div class="row">
                 <div class="col-md-6 offset-md-3 col-sm-12">
-                    <h1 class="text-center">{{ title }}</h1>
+                    <!-- <h1 class="text-center">{{ title }}</h1> -->
                     <br>
-                    <img v-bind:src="'data:image/jpeg;base64, '+imageBytes" />
+                    <!-- <img v-bind:src="'data:image/jpeg;base64, '+imageBytes" /> -->
+                    <canvas id="myCanvas" width="600" height="480"></canvas>
                 </div>
             </div>
     </div>
-    <br>
-    <p style="color: aqua;"> Link to our projects webpage</p>
-    <a href = "https://ecesd.engr.uconn.edu/ecesd2120/">Check us out</a>
 
 <script src="main.js"></script>
 </body>
